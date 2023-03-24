@@ -1,0 +1,442 @@
+<form action="https://cl.s12.exct.net/DEManager.aspx" name="subscribeForm" method="post">
+    
+    <script type="text/javascript">
+    	
+    	function validarForm() {
+        var motivoContato = document.getElementById("motivocontato");
+        var empresa = document.getElementById("empresa-direta");
+        var cargo = document.getElementsByName("Diretas_Cargo")[0];
+        var setor = document.getElementsByName("Diretas_Setor")[0];
+        var colaboradores = document.getElemenstByName("Diretas_Colaboradores")[0];
+        var mensagemdireta = document.getElementById("mensagemdireta");
+        
+        if (motivoContato === "Quero um orçamento ou proposta comercial" || motivoContato === "Estou curioso sobre o assunto") {
+            empresa.required = true;
+            cargo.required = true;
+            setor.required = true;
+            colaboradores.required = true;
+            mensagemdireta.required = true;
+        } else
+            {
+            empresa.required = false;
+            cargo.required = false;
+            setor.required = false;
+            colaboradores.required = false;
+            mensagemdireta.required = false;
+            }
+        
+        var empresaindireta = document.getElementById("empresa-indireta");
+        var segmento = document.getElementsByName("Indiretas_Segmento")[0];
+        var vidas = document.getElementsByName("Indiretas_Vidas")[0];
+        var whitelabel = document.getElementsByName("Indiretas_WhiteLabel")[0];
+        var atuacao = document.getElementsByName("Indiretas_AtuacaoB2B2C")[0];
+        var faturamento = document.getElementsByName("Indiretas_Faturamento")[0];
+        var mensagemindireta = document.getElementById("mensagemindireta");
+        
+        if (motivoContato.value === "Quero revender os benefícios") {
+            empresaindireta.required = true;
+            segmento.required = true;
+            vidas.required = true;
+            whitelabel.required = true;
+            atuacao.required = true;
+            faturamento.required = true;
+            mensagemindireta.required = true;
+        } else
+            {
+            empresaindireta.required = false;
+            segmento.required = false;
+            vidas.required = false;
+            whitelabel.required = false;
+            atuacao.required = false;
+            faturamento.required = false;
+            mensagemindireta.required = false;    
+            }
+            
+        var paciente = document.getElementsByName("Paciente_Profissional")[0];
+        if (motivoContato.value === "Paciente") {
+            paciente.required = true;
+        } else
+            {
+            paciente.required = false;
+            }
+            
+        var profissional = documento.getElementsByName("Profissional_Profissao")[0];
+        if (motivoContato.value === "Profissional") {
+            profissional.required = true;
+        } else
+            {
+            profissional.required = false    
+            }
+        
+        }
+
+    	document.getElementById("motivocontato").addEventListener("change", validarForm);
+    	
+    
+    	function motivoCheck(that) 
+	{
+      if (that.value == "Quero um orçamento ou proposta comercial" || that.value == "Estou curioso sobre o assunto")
+      {
+          document.getElementById("vendadireta").style.display = "block";
+      }
+      else
+      {
+          document.getElementById("vendadireta").style.display = "none";
+      }
+      
+      
+      if (that.value == "Paciente")
+      {
+          document.getElementById("paciente").style.display = "block";
+      }
+      else
+      {
+          document.getElementById("paciente").style.display = "none";
+      }
+      
+      
+      if (that.value == "Profissional")
+      {
+          document.getElementById("profissional").style.display = "block";
+      }
+      else
+      {
+          document.getElementById("profissional").style.display = "none";
+      }
+      
+      
+      if (that.value == "Quero revender os benefícios")
+      {
+          document.getElementById("vendaindireta").style.display = "block";
+      }
+      else
+      {
+          document.getElementById("vendaindireta").style.display = "none";
+      }
+	}
+      
+        function segmentocheck(that) 
+	{
+      if (that.value == "Sou corretor autônomo")
+      {
+          document.getElementById("corretor").style.display = "block";
+      }
+      else
+      {
+          document.getElementById("corretor").style.display = "none";
+      }
+      
+      
+      if (that.value == "Clínica" || that.value == "Corretora" || that.value == "Empresa de benefícios para RH" || that.value == "Hospital" || that.value == "Seguradora de saúde")
+      {
+          document.getElementById("empresa").style.display = "block";
+      }
+      else
+      {
+          document.getElementById("empresa").style.display = "none";
+      }
+    }
+	</script>
+	
+	
+	
+    <input type="hidden" name="_clientID" value="534006644" />
+    <input type="hidden" name="_deExternalKey" value="EEE8B979-5581-4168-926D-2C97FC1DA71C" />
+    <input type="hidden" name="_action" value="add" />
+    <input type="hidden" name="_returnXML" value="0" />
+    <input type="hidden" name="_successURL" id="successURL" value="https://cadastro.conexasaude.com.br/obrigado/" />
+    <input type="hidden" name="_errorURL" id="errorURL" value="https://cadastro.conexasaude.com.br/obrigado/" />
+    
+    
+    
+    
+        Primeiro nome: * <input type="text" name="Nome" required="required" aria-required="true"><br><br>
+        
+        Sobrenome: * <input type="text" name="Sobrenome" required="required" aria-required="true"><br /><br>
+        
+        E-mail corporativo: * <input type="text" name="Email" required="required" aria-required="true"><br /><br>
+        
+        Whatsapp: * <input size="1" type="text" name="Celular" placeholder="(DDD)+Telefone" required="required" aria-required="true" pattern="[0-9()#&amp;+*-=.]+" title="Somente números e caracteres de telefones são aceitos (#, -, *, etc)."><br><br>
+        
+        Qual o motivo do seu contato? *<br> <select name="MotivoContato" required="required" aria-required="true" class="psi" id="motivocontato" onchange="motivoCheck(this); validarForm()">
+                <option value="" selected disabled hidden>Selecione</option>
+                <option value="Quero um orçamento ou proposta comercial">Quero um orçamento ou proposta comercial</option>
+                <option value="Quero revender os benefícios">Quero revender os benefícios Conexa</option>
+                <option value="Estou curioso sobre o assunto">Estou curioso sobre o assunto</option>
+                <option value="Paciente">Sou cliente e/ou quero acessar meu benefício</option>
+                <option value="Profissional">Sou profissional e quero atender pela Conexa</option>
+                <option value="Emprego">Busco recolocação profissional</option>
+                </select><br><br>
+       
+        <div id="vendadireta" style="display: none;">
+        
+        Empresa: * <input type="text" name="Diretas_Empresa" id="empresa-direta" aria-required="true"><br /><br>
+       
+        Qual seu cargo? *<br> <select name="Diretas_Cargo" aria-required="true" class="psi" id="cargo">
+                <option value="" selected disabled hidden>Selecione</option>
+                <option value="C-Level/Founder">C-Level/Founder</option>
+                <option value="Diretor">Diretor</option>
+                <option value="Gerente">Gerente</option>
+                <option value="Coordenador">Coordenador</option>
+                <option value="Supervisor">Supervisor</option>
+                <option value="Analista">Analista</option>
+                <option value="Assistente">Assistente</option>
+                <option value="Outros">Outros</option>
+                </select><br><br>
+      
+        Em que departamento atua? *<br><select name="Diretas_Setor" aria-required="true" class="crp">
+                <option value="" selected disabled hidden>Selecione</option>
+                <option value="Administrativo">Administrativo</option>
+                <option value="Compras/Suprimentos">Compras/Suprimentos</option>
+                <option value="Desenvolvimento Humano Organizacional">Desenvolvimento Humano Organizacional</option>
+                <option value="Financeiro">Financeiro</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Operações">Operações</option>
+                <option value="Produtos">Produtos</option>
+                <option value="RH Benefícios">RH Benefícios</option>
+                <option value="RH Departamento Pessoal">RH Departamento Pessoal</option>
+                <option value="RH Geral">RH Geral</option>
+                <option value="RH Recrutamento e Seleção">RH Recrutamento e Seleção</option>
+                <option value="Saúde Ocupacional">Saúde Ocupacional</option>
+                <option value="TI">TI</option>
+                <option value="Outros">Outros</option>
+                </select> <br><br>
+     
+        Quantos colaboradores tem sua empresa? * <br><select name=" Diretas_Colaboradores" id="Diretas_Colaboradores" aria-required="true" class="atender">
+                <option value="" selected disabled hidden>Selecione</option>
+                <option value="1-99 funcionários">Até 10 colaboradores</option>
+                <option value="1-99 funcionários">De 11 a 100</option>
+                <option value="100-299 funcionários">De 101 a 300</option>
+                <option value="300-499 funcionários">De 301 a 500</option>
+                <option value="500-999 funcionários">De 501 a 1.000</option>
+                <option value="1000-2999 funcionários">De 1.001 a 3.000</option>
+                <option value="3000-4999 funcionários">De 3.001 a 5.000</option>
+                <option value="5000-9999 funcionários">De 5.001 a 10.000</option>
+                <option value="10000 ou + funcionários">Mais de 10.000 colaboradores</option>
+                </select><br><br>
+                
+        Como podemos te ajudar? * <textarea type="text" name="Diretas_Mensagem" id="mensagemdireta" aria-required="true" placeholder="Digite aqui a sua mensagem"></textarea><br /><br>
+        
+    </div>
+    
+    <div id="vendaindireta" style="display: none;">
+        
+        Empresa:* <input type="text" name="Indiretas_Empresa" id="empresa-indireta" aria-required="true"><br /><br>
+     
+        Qual o segmento da sua empresa? * <select name="Indiretas_Segmento" id="Indiretas_Segmento" aria-required="true" class="psi" onchange="segmentocheck(this)">
+                <option value="" selected disabled hidden>Selecione</option>
+                <option value="Clínica">Clínica</option>
+                <option value="Corretora">Corretora</option>
+                <option value="Empresa de benefícios para RH">Empresa de benefícios para RH</option>
+                <option value="Hospital">Hospital</option>
+                <option value="Seguradora de saúde">Seguradora de saúde</option>
+                <option value="Sou corretor autônomo">Sou corretor/consultor autônomo</option>
+                <option value="Outros">Outros</option>
+                </select><br><br>
+     
+        Quantas vidas sua carteira possui? * <select name="Indiretas_Vidas" id="Indiretas_Vidas" aria-required="true" class="atender">
+                <option value="" selected disabled hidden>Selecione</option>
+                <option value="Até 50 vidas">Até 50 vidas</option>
+                <option value="De 50 a 10.000">De 50.000 a 10.000</option>
+                <option value="De 10.000 a 50.000">De 10.0000 a 50.000</option>
+                <option value="Mais de 50.000 vidas">Mais de 50.000 vidas</option>
+                </select><br><br>
+     
+        A Conexa não atua com Whitelabel hoje. É o que você busca? * <select name="Indiretas_WhiteLabel" id="Indiretas_WhiteLabel" aria-required="true" class="atender">
+                <option value="" selected disabled hidden>Selecione</option>
+                <option value="False">Sim</option>
+                <option value="True">Não</option>
+                </select><br><br>
+                
+        Busca atuação com B2B2C? * <select name="Indiretas_AtuacaoB2B2C" aria-required="true" class="atender">
+                <option value="" selected disabled hidden>Selecione</option>
+                <option value="True">Sim</option>
+                <option value="False">Não</option>
+                </select><br><br>
+                
+        Possui um faturamento mensal mínimo de R$3.000 para se tormar um parceiro? * <select name="Indiretas_Faturamento" aria-required="true" class="atender">
+                <option value="" selected disabled hidden>Selecione</option>
+                <option value="True">Sim</option>
+                <option value="False">Não</option>
+                </select><br><br>
+
+                 
+    <div id="corretor" style="display: none;">
+        
+        Qual a sua experiência com vendas para empresas? * <br> <select name="Indiretas-Autonomo_Experiencia" aria-required="true"> 
+                <option value="" selected disabled hidden>Selecione</option>
+                <option value="Não possuo experiência ainda">Não possuo experiência ainda</option>
+                <option value="Até 2 anos">Até 2 anos</option>
+                <option value="De 2 a 5 anos">De 2 a 5 anos</option>
+                <option value="Acima de 5 anos">Acima de 5 anos</option>
+                </select><br><br>
+
+        Possui SUSEP? * <br> <select name="Indiretas-Autonomo_Susep" aria-required="true">
+                <option value="" selected disabled hidden>Selecione</option>
+                <option value="True">Sim</option>
+                <option value="False">Não</option>
+                </select><br><br>
+    </div>
+    
+    <div id="empresa" style="display: none;">
+    
+        Possui CNPJ? * <select name="Indiretas-Empresa_CNPJ" aria-required="true" class="atender">
+                <option value="" selected disabled hidden>Selecione</option>
+                <option value="True">Sim</option>
+                <option value="False">Não</option>
+                </select><br><br>
+    
+    </div>
+    
+        Como podemos te ajudar? * <textarea type="text" name="Indiretas_Mensagem" id="mensagemindireta" aria-required="true" placeholder="Digite aqui a sua mensagem"></textarea><br /><br>
+    
+    </div>
+    
+    <div id="paciente" style="display: none;">
+        
+        Qual profissional você está buscando no momento? * <select name="Paciente_Profissional" id="Paciente_Profissional" aria-required="true" class="atender">
+                <option value="" selected disabled hidden>Selecione</option>
+                <option value="Psicologia Viva">Psicólogo</option>
+                <option value="Conexa">Médico e/ou Nutricionista</option>
+                </select><br><br>
+        
+    </div>
+    
+    <div id="profissional" style="display: none;">
+        
+        Você é: * <select name="Profissional_Profissao" id="Profissional_Profissao" aria-required="true" class="atender">
+                <option value="" selected disabled hidden>Selecione</option>
+                <option value="Psicólogo">Psicólogo</option>
+                <option value="Médico">Médico</option>
+                <option value="Nutricionista">Nutricionista</option>
+                </select><br><br>
+        
+    </div>
+    
+              
+             
+            <input type="hidden" id="inputOculto" name="PaginaConversao" value="Conexa Corporate">
+	    <input type="hidden" name="MKT_Origem" value="Conexa">
+	    <input type="hidden" name="LP_Corporate-CNX" value="True">
+            <input type="hidden" name="UTM_Source" id="utm_source">
+            <input type="hidden" name="UTM_Medium" id="utm_medium">
+            <input type="hidden" name="UTM_Campaign" id="utm_campaign">
+            <input type="hidden" name="GCLID" id="gclid_field">
+            <br>
+        
+            <input type="radio" value="True" name="OptIn" required="required" aria-required="true" title="Você precisa concordar em receber nosso contato." > 
+            <label for="Eu concordo em receber comunicações">Eu concordo em receber comunicações. *</label>
+            <br><br>
+            Ao informar meus dados , eu concordo com a <a href="https://www.psicologiaviva.com.br/privacidade.html">Política de Privacidade</a>.
+            <br><br>
+            <button type="submit" value="Submit" class="sc-button" >Falar com um consultor</button>
+    
+        <script>
+            document.addEventListener("DOMContentLoaded", function(){
+                var b2bURL = document.getElementById("Diretas_Colaboradores");
+                var pacienteURL = document.getElementById("Paciente_Profissional");
+                var indiretasegmentoURL = document.getElementById("Indiretas_Segmento");
+                var indiretavidasURL = document.getElementById("Indiretas_Vidas");
+                var indiretawhitelabeURL = document.getElementById("Indiretas_WhiteLabel");
+                var profissionalURL = document.getElementById("Profissional_Profissao");
+                var successURL = document.getElementById("successURL");
+                var errorURL = document.getElementById("errorURL");
+
+                b2bURL.addEventListener("change", function(){
+                    if (b2bURL.value === "1-99 funcionários") {
+                        successURL.value = "https://cadastro.conexasaude.com.br/b2b-thank-you-page-smb/";
+                    } if (b2bURL.value === "100-299 funcionários" || b2bURL.value === "300-499 funcionários" || b2bURL.value === "500-999 funcionários" || b2bURL.value === "1000-2999 funcionário" || b2bURL.value === "3000-4999 funcionários" || b2bURL.value === "5000-9999 funcionários" || b2bURL.value === "10000 ou + funcionários") {
+                        successURL.value = "https://cadastro.conexasaude.com.br/b2b-thank-you-page-big/";
+                    }
+                });
+
+                pacienteURL.addEventListener("change", function(){
+                    if (pacienteURL.value === "Psicologia Viva") {
+                        successURL.value = "https://cadastro.conexasaude.com.br/b2b-thank-you-page-pacientes-psi/";
+                    } if (pacienteURL.value ==="Conexa") {
+                        successURL.value = "https://cadastro.conexasaude.com.br/b2b-thank-you-page-pacientes/";
+                    }
+                });
+                
+                profissionalURL.addEventListener("change", function(){
+                    if (profissionalURL.value === "Psicólogo") {
+                        successURL.value  = "https://corporate.psicologiaviva.com.br/psicologo-pagina-de-cadastro-2023"
+                    } if (profissionalURL.value === "Médico") {
+                        successURL.value = "https://registro-profissional.conexasaude.com.br?clinica=8206"
+                    } if (profissionalURL.value === "Nutricionista") {
+                        successURL.value = "https://registro-profissional.conexasaude.com.br?clinica=6059"
+                    }
+                });
+                
+                indiretasegmentoURL.addEventListener("change", function(){
+                    if (indiretasegmentoURL.value != "Outros" && indiretavidasURL.value != "Mais de 50.000 vidas" && indiretawhitelabelURL.value === "True") {
+                        successURL.value = "https://cadastro.conexasaude.com.br/b2b-thank-you-page-parceria/";
+                    } else {
+                        successURL.value = "https://cadastro.conexasaude.com.br/obrigado/";
+                    }
+                });
+                
+            });
+    </script>
+            
+    <script>
+      var urlParams = new URLSearchParams(window.location.search);
+        var utm_source = urlParams.get('utm_source');
+        var utm_medium = urlParams.get('utm_medium');
+        var utm_campaign = urlParams.get('utm_campaign');
+        document.getElementsByName('UTM_Source')[0].value = utm_source;
+        document.getElementsByName('UTM_Medium')[0].value = utm_medium;
+        document.getElementsByName('UTM_Campaign')[0].value = utm_campaign;
+    </script>
+
+    <script>
+
+
+function getParam(p) {
+  var match = RegExp('[?&]' + p + '=([^&]*)').exec(window.location.search);
+  return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+}
+
+function getExpiryRecord(value) {
+  var expiryPeriod = 90 * 24 * 60 * 60 * 1000; // validade de 90 dias em milésimos de segundo
+
+  var expiryDate = new Date().getTime() + expiryPeriod;
+  return {
+    value: value,
+    expiryDate: expiryDate
+  };
+}
+
+function addGclid() {
+  var gclidParam = getParam('gclid');
+  var gclidFormFields = ['gclid_field']; // todos os códigos dos campos de formulário do GCLID possíveis
+  var gclidRecord = null;
+  var currGclidFormField;
+
+  var gclsrcParam = getParam('gclsrc');
+  var isGclsrcValid = !gclsrcParam || gclsrcParam.indexOf('aw') !== -1;
+
+  gclidFormFields.forEach(function (field) {
+    if (document.getElementById(field)) {
+      currGclidFormField = document.getElementById(field);
+    }
+  });
+
+  if (gclidParam && isGclsrcValid) {
+    gclidRecord = getExpiryRecord(gclidParam);
+    localStorage.setItem('gclid', JSON.stringify(gclidRecord));
+  }
+
+  var gclid = gclidRecord || JSON.parse(localStorage.getItem('gclid'));
+  var isGclidValid = gclid && new Date().getTime() < gclid.expiryDate;
+
+  if (currGclidFormField && isGclidValid) {
+    currGclidFormField.value = gclid.value;
+  }
+}
+
+window.addEventListener('load', addGclid);
+
+ </script>
+
+</form>
